@@ -24,7 +24,7 @@ public class Product {
     @Column(length  = 2000)
     private String courseDescription;
 
-    private Designer designer;
+    private Author author;
 
     private BigDecimal price;
 
@@ -81,12 +81,12 @@ public class Product {
         this.courseDescription = courseDescription;
     }
 
-    public Designer getDesigner() {
-        return designer;
+    public Author getDesigner() {
+        return author;
     }
 
-    public void setDesigner(Designer designer) {
-        this.designer = designer;
+    public void setDesigner(Author author) {
+        this.author = author;
     }
 
     public BigDecimal getPrice() {

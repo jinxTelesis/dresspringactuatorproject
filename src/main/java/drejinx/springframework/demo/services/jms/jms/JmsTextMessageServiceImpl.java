@@ -12,11 +12,19 @@ public class JmsTextMessageServiceImpl {
     private Queue textMessageQueue;
     private JmsTemplate jmsTemplate;
 
+//    @Autowired
+//    public void setTextMessageQueue(Queue textMessageQueue) {
+//        this.textMessageQueue = textMessageQueue;
+//    }
+
     @Autowired
-    public void setTextMessageQueue(javax.jms.Queue textMessageQueue) { this.textMessageQueue = textMessageQueue;}
+    public void setJmsTemplate(JmsTemplate jmsTemplate) {
+        this.jmsTemplate = jmsTemplate;
+    }
 
-    public void SetJmsTemplate(JmsTemplate jmsTemplate) {this.jmsTemplate = jmsTemplate;}
-
-    public void snedTextMessage(String msg) {this.jmsTemplate.convertAndSend(this.textMessageQueue, msg);}
+    @Override
+    public void sendTextMessage(String msg) {
+        this.jmsTemplate.convertAndSend(this.textMessageQueue, msg);
+    }
 
 }
